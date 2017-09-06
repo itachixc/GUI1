@@ -1,0 +1,79 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Sep  4 21:30:35 2017
+
+@author: hp-pc
+have finished =.=
+successful
+"""
+
+#coding utf-8  
+import tkinter as tk  
+from tkinter import *
+window = tk.Tk()  
+window.title('my window')  
+window.geometry('200x200')  
+ 
+                 #show 为展现形式，None 为显示原型  
+e = tk.Entry(window,show='',)  
+e.pack()  
+  
+def add_self():  
+    var = e.get()
+    var1=t.get(0.0,END)
+    b4.delete(0.0,END)
+    try:
+        int(var)
+        var=int(var)+int(var1)
+        t.delete(0.0,END)
+        b4.insert('end','ok')
+        t.insert('insert',var)
+    except ValueError:
+        var3='wrong'
+        b4.insert('end',var3)
+        
+def minus_self():  
+    var = e.get()
+    var1=t.get(0.0,END)
+    b4.delete(0.0,END)
+    try:
+        int(var)
+        var1=t.get(0.0,END)
+        var=int(var1)-int(var)
+        t.delete(0.0,END)
+        b4.insert('end','ok')
+        t.insert('insert',var)
+    except ValueError:
+        var3='wrong'
+        b4.insert('end',var3)
+  
+
+def insert_end():
+    
+    b4.delete(0.0,END)
+    t.delete(0.0,END)
+    var = e.get()  
+    try:
+        int(var)
+        b4.insert('end','ok')
+        t.insert('end',var)
+    except ValueError:
+        var3='wrong'
+        b4.insert('end',var3)
+        
+    # t.insert(1.1,var)  可以用数字表示坐标,（1，1）  
+
+ 
+b1 = tk.Button(window,text='+',width=2, height=1,command=add_self)  
+b1.pack(side=RIGHT) 
+b3 = tk.Button(window,text='-',width=2, height=1,command=minus_self)  
+b3.pack(side=RIGHT)  
+b2 = tk.Button(window,text='Click on',width=6,height=1,command=insert_end)  
+b2.pack() 
+b4=tk.Text(window,width=5,height=1)
+b4.insert('insert','ok')
+b4.pack()
+  
+t = tk.Text(window,height=2,width=25)  
+t.pack(side=BOTTOM)  
+window.mainloop()  
